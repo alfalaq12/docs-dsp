@@ -126,6 +126,15 @@ id,name,email,created_at
 ]
 ```
 
+### Excel
+
+Support untuk format `.xlsx` dan `.xls` (Microsoft Excel). Pastikan data berada di **Sheet 1** dan baris pertama adalah header.
+
+| id | name | email | created_at |
+|----|------|-------|------------|
+| 1 | John Doe | john@example.com | 2024-01-15 |
+| 2 | Jane Smith | jane@example.com | 2024-01-16 |
+
 ## Best Practices
 
 :::tip Recommendations

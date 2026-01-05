@@ -65,6 +65,9 @@ const config = {
         defaultMode: 'dark',
         respectPrefersColorScheme: true,
       },
+      mermaid: {
+        theme: { light: 'neutral', dark: 'dark' },
+      },
       navbar: {
         title: 'DSP Platform',
         logo: {
