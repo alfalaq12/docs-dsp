@@ -119,6 +119,13 @@
   padding-top: 3.5rem !important;
   position: relative;
   background-color: #1e293b !important; /* Always dark bg for code */
+  color: #e2e8f0 !important; /* Always light text */
+}
+
+/* Force code tokens to be visible if they inherit dark colors in light mode */
+.theme-code-block code {
+  color: inherit;
+  background-color: transparent;
 }
 
 /* Mac Traffic Lights */

@@ -139,7 +139,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} DSP Platform. Built with Docusaurus.`,
       },
       prism: {
-        theme: prismThemes.github,
+        theme: prismThemes.dracula,
         darkTheme: prismThemes.dracula,
         additionalLanguages: ['bash', 'json', 'yaml', 'go', 'sql'],
       },
