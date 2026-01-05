@@ -20,7 +20,7 @@ Sebelum membuat sync job, pastikan Anda sudah:
 
 1. ✅ Setup [Network Connection](/docs/network/setup) ke source database
 2. ✅ Setup [Network Connection](/docs/network/setup) ke target database  
-3. ✅ Definisikan [Schema](/docs/database-sync/schema) untuk mapping tabel
+3. ✅ Definisikan Schema untuk mapping tabel
 
 ## Step-by-Step Guide
 
