@@ -16,19 +16,19 @@ DSP Agent adalah komponen yang dijalankan di server tenant/cabang. Agent menduku
 - **File**: FTP, SFTP (CSV, JSON, Excel)
 - **API**: REST API external
 
-```
-┌─────────────┐         TCP/TLS Connection       ┌─────────────┐
-│ DSP Master  │ ◄───────────────────────────────►│  DSP Agent  │
-│ Port: 441   │         Port: 447 (customizable) │  (Tenant)   │
-│ TCP: 447    │                                  └──────┬──────┘
-└─────────────┘                                         │
-                                                        ▼
-                    ┌────────────────────────────────────────────────┐
-                    │              Data Sources                      │
-                    ├──────────┬──────────┬──────────┬───────────────┤
-                    │PostgreSQL│  MySQL   │ MongoDB  │    MinIO      │
-                    │SQL Server│  Oracle  │  Redis   │   FTP/SFTP    │
-                    └──────────┴──────────┴──────────┴───────────────┘
+```text
+┌──────────────┐          TCP/TLS Connection        ┌──────────────┐
+│  DSP Master  │ ◄────────────────────────────────► │   DSP Agent  │
+│  Port: 441   │        Port: 447 (customizable)    │   (Tenant)   │
+│  TCP: 447    │                                    └──────┬───────┘
+└──────────────┘                                           │
+                                                           ▼
+                     ┌──────────────────────────────────────────────────┐
+                     │                   Data Sources                   │
+                     ├───────────┬───────────┬───────────┬──────────────┤
+                     │ PostgreSQL│   MySQL   │  MongoDB  │    MinIO     │
+                     │ SQL Server│   Oracle  │   Redis   │   FTP/SFTP   │
+                     └───────────┴───────────┴───────────┴──────────────┘
 ```
 
 ## Key Features
