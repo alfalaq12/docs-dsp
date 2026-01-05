@@ -1,0 +1,8 @@
+{
+    "label": "API Reference",
+    "position": 8,
+    "link": {
+        "type": "generated-index",
+        "description": "REST API documentation untuk DSP Platform."
+    }
+}

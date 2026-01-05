@@ -1,0 +1,8 @@
+{
+    "label": "Database Sync",
+    "position": 5,
+    "link": {
+        "type": "generated-index",
+        "description": "Panduan sinkronisasi database dengan DSP Platform."
+    }
+}
