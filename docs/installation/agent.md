@@ -18,13 +18,13 @@ DSP Agent adalah komponen yang dijalankan di server tenant/cabang. Agent menduku
 
 ```
 ┌─────────────┐         TCP/TLS Connection       ┌─────────────┐
-│ DSP Master  │ ◄───────────────────────────────► │  DSP Agent  │
+│ DSP Master  │ ◄───────────────────────────────►│  DSP Agent  │
 │ Port: 441   │         Port: 447 (customizable) │  (Tenant)   │
-│ TCP: 447    │                                   └──────┬──────┘
-└─────────────┘                                          │
-                                                         ▼
+│ TCP: 447    │                                  └──────┬──────┘
+└─────────────┘                                         │
+                                                        ▼
                     ┌────────────────────────────────────────────────┐
-                    │              Data Sources                       │
+                    │              Data Sources                      │
                     ├──────────┬──────────┬──────────┬───────────────┤
                     │PostgreSQL│  MySQL   │ MongoDB  │    MinIO      │
                     │SQL Server│  Oracle  │  Redis   │   FTP/SFTP    │

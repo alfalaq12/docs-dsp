@@ -21,18 +21,18 @@ DSP adalah solusi lengkap untuk penarikan dan sinkronisasi data dengan performa 
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                       Master Server                              │
+│                       Master Server                             │
 │  ┌──────────────────┐    ┌───────────────────────────┐          │
 │  │   Web Console    │    │    Agent Listener         │          │
 │  │  (React + Vite)  │    │     TCP :447              │          │
 │  │   Served :441    │    │  (customizable)           │          │
 │  └────────┬─────────┘    └─────────────┬─────────────┘          │
-│           │                            │                         │
+│           │                            │                        │
 │  ┌────────▼────────────────────────────▼────────────────────┐   │
 │  │              Gin HTTP API :441                           │   │
-│  │           (REST + JWT Authentication)                     │   │
+│  │           (REST + JWT Authentication)                    │   │
 │  └──────────────────────────────────────────────────────────┘   │
-│                              │                                   │
+│                              │                                  │
 │  ┌───────────────────────────▼──────────────────────────────┐   │
 │  │              Embedded SQLite (dsp.db)                    │   │
 │  │    Users | Schemas | Networks | Jobs | AuditLogs         │   │
