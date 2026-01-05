@@ -94,24 +94,17 @@ Map kolom dari file ke target database:
 
 ## Processing Flow
 
-```
-FTP/SFTP Server          DSP Agent              Target Database
-      │                      │                        │
-      │   1. Connect         │                        │
-      │ ◄─────────────────── │                        │
-      │                      │                        │
-      │   2. List files      │                        │
-      │ ◄─────────────────── │                        │
-      │                      │                        │
-      │   3. Download file   │                        │
-      │ ─────────────────► │                        │
-      │                      │                        │
-      │                      │  4. Parse & Transform  │
-      │                      │  ──────────────────►   │
-      │                      │                        │
-      │                      │  5. UPSERT records     │
-      │                      │  ──────────────────►   │
-      │                      │                        │
+```mermaid
+sequenceDiagram
+    participant Svr as FTP/SFTP Server
+    participant Agent as DSP Agent
+    participant DB as Target Database
+
+    Agent->>Svr: 1. Connect
+    Agent->>Svr: 2. List files
+    Svr-->>Agent: 3. Download file
+    Note right of Agent: 4. Parse & Transform
+    Agent->>DB: 5. UPSERT records
 ```
 
 ## File Formats

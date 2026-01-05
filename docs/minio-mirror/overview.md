@@ -77,12 +77,16 @@ Buat job mirroring di menu **Jobs**.
 
 ## Architecture
 
-```
-┌─────────────┐                    ┌─────────────┐
-│  Source     │     Download       │   DSP       │      Upload      ┌─────────────┐
-│  MinIO      │ ─────────────────► │ Master/Agent│ ───────────────► │  Target     │
-│             │                    │             │                  │  MinIO      │
-└─────────────┘                    └─────────────┘                  └─────────────┘
+```mermaid
+graph LR
+    Source[Source MinIO] -- Download --> DSP[DSP Master/Agent]
+    DSP -- Upload --> Target[Target MinIO]
+    
+    classDef storage fill:#be185d,stroke:#f472b6,color:#fff;
+    classDef process fill:#0369a1,stroke:#38bdf8,color:#fff;
+    
+    class Source,Target storage;
+    class DSP process;
 ```
 
 ## Setup di Agent

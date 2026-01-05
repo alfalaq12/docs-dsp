@@ -85,19 +85,12 @@ Setiap command yang dijalankan tercatat di Audit Log:
 
 ## Architecture
 
-```
-┌─────────────────┐                      ┌─────────────────┐
-│   Web Console   │                      │    DSP Agent    │
-│   (Terminal)    │                      │                 │
-└────────┬────────┘                      └────────┬────────┘
-         │                                        │
-         │  1. Send Command                       │
-         │ ────────────────────────────────────►  │
-         │                                        │
-         │                                        │  2. Execute
-         │                                        │  ──────────►
-         │                                        │
-         │  3. Stream Output                      │
-         │ ◄────────────────────────────────────  │
-         │                                        │
+```mermaid
+sequenceDiagram
+    participant Web as Web Console
+    participant Agent as DSP Agent
+
+    Web->>Agent: 1. Send Command (WebSocket)
+    Note right of Agent: 2. Execute Command
+    Agent-->>Web: 3. Stream Output
 ```

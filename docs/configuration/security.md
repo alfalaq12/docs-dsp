@@ -156,19 +156,28 @@ sudo ufw enable
 
 ### Recommended Architecture
 
-```
-                    ┌─────────────────┐
-                    │    Firewall     │
-                    └────────┬────────┘
-                             │
-         ┌───────────────────┼───────────────────┐
-         │                   │                   │
-         ▼                   ▼                   ▼
-    ┌─────────┐        ┌─────────┐        ┌─────────┐
-    │  Admin  │        │ Master  │        │  Agent  │
-    │ Network │◄──────►│ Server  │◄──────►│ Network │
-    │ (441)   │        │         │        │ (447)   │
-    └─────────┘        └─────────┘        └─────────┘
+```mermaid
+graph TD
+    Firewall[Firewall]
+    
+    subgraph Trusted[Admin Network]
+        Admin[Admin PC]
+    end
+    
+    subgraph Server[Server Zone]
+        Master[Master Server]
+    end
+    
+    subgraph AgentNet[Agent Network]
+        Agent[Tenant Agent]
+    end
+
+    Admin -- Port 441 --> Firewall
+    Agent -- Port 447 --> Firewall
+    Firewall --> Master
+    
+    style Firewall fill:#b91c1c,stroke:#f87171,color:#fff
+    style Master fill:#1e40af,stroke:#60a5fa,color:#fff
 ```
 
 ## Best Practices
