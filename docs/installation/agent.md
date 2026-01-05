@@ -16,19 +16,25 @@ DSP Agent adalah komponen yang dijalankan di server tenant/cabang. Agent menduku
 - **File**: FTP, SFTP (CSV, JSON, Excel)
 - **API**: REST API external
 
-```text
-┌──────────────┐          TCP/TLS Connection        ┌──────────────┐
-│  DSP Master  │ ◄────────────────────────────────► │   DSP Agent  │
-│  Port: 441   │        Port: 447 (customizable)    │   (Tenant)   │
-│  TCP: 447    │                                    └──────┬───────┘
-└──────────────┘                                           │
-                                                           ▼
-                     ┌──────────────────────────────────────────────────┐
-                     │                   Data Sources                   │
-                     ├───────────┬───────────┬───────────┬──────────────┤
-                     │ PostgreSQL│   MySQL   │  MongoDB  │    MinIO     │
-                     │ SQL Server│   Oracle  │   Redis   │   FTP/SFTP   │
-                     └───────────┴───────────┴───────────┴──────────────┘
+```mermaid
+graph LR
+    Master[DSP Master :441] -- TCP/TLS :447 --> Agent[DSP Agent]
+    
+    Agent --> PG[(PostgreSQL)]
+    Agent --> MySQL[(MySQL)]
+    Agent --> Ora[(Oracle)]
+    Agent --> Mongo[(MongoDB)]
+    Agent --> Redis[(Redis)]
+    Agent --> MinIO[(MinIO)]
+    Agent --> File[FTP/SFTP]
+
+    classDef master fill:#1e40af,stroke:#60a5fa,color:#fff;
+    classDef agent fill:#047857,stroke:#34d399,color:#fff;
+    classDef ds fill:#475569,stroke:#94a3b8,color:#fff;
+
+    class Master master;
+    class Agent agent;
+    class PG,MySQL,Ora,Mongo,Redis,MinIO,File ds;
 ```
 
 ## Key Features
